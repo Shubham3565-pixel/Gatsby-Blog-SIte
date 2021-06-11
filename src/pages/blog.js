@@ -4,6 +4,8 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
 
+import '../assets/css/blog.css'
+
 const BlogPage = () => {
 
     const data = useStaticQuery(graphql`
@@ -33,8 +35,10 @@ const BlogPage = () => {
                     return (
                         <li>
                           <Link to ={`/blog/${edge.node.fields.slug}`}>
+                            <div className="blog-list">
                             <h2>{edge.node.frontmatter.title}</h2>
-                            <p>{edge.node.frontmatter.date}</p>
+                            <p style={{fontStyle:"italic"}}>{edge.node.frontmatter.date}</p>
+                            </div>
                           </Link>
                         </li>
                     )
